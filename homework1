@@ -1,0 +1,56 @@
+一、APP：
+1、程序启动：状态由Not running -> Inactive -> Active
+willFinishLaunchingWithOptions
+didFinishLaunchingWithOptions
+applicationDidBecomeActive
+2、点击home键|锁屏：由Active -> Inactive -> Backgroud
+applicationWillResignActive
+applicationDidEnterBackground
+3、重新进入前台：Backgroud -> Inactive -> Active applicationWillEnterForeground
+applicationDidBecomeActive
+4、在前台，双击home键，手动杀掉APP：Active -> Inactive -> Backgroud -> end
+applicationWillResignActive
+applicationDidEnterBackground
+applicationWillTerminate
+当URL到达时，如果你的应用没在正在运行，则会被启动并且移到前台运行以打开URL
+application:didFinishLaunchingWithOptions:
+application:openURL:sourceApplication:
+applicationDidBecomeActive
+当URL到达时，如果你的应用正在background运行或被suspended，它将会被移到前台以打开URL
+applicationWillEnterForeground
+application:openURL:sourceApplication:
+applicationDidBecomeActive
+ViewController:
+1、 alloc
+创建对象，分配空间
+2、init (initWithNibName|initWithCoder)
+初始化对象，初始化数据
+3、awakeFromNib
+所有视图的outlet和action已经连接，但还没有被确定。
+4、loadView
+完成一些关键view的初始化工作，加载view。
+5、viewDidLoad
+载入完成，可以进行自定义数据以及动态创建其他控件
+6、viewWillAppear
+视图将出现在屏幕之前
+7、viewWillLayoutSubviews
+将要对子视图进行调整
+8、viewDidLayoutSubviews
+对子视图进行调整完毕
+9、viewDidAppear
+视图已在屏幕上渲染完成
+10、viewWillDisappear
+视图将被从屏幕上移除
+11、viewDidDisappear
+视图已经被从屏幕上移除
+12、dealloc
+视图被销毁，此处需要对你在init和viewDidLoad中创建的对象进行释放
+13、didReceiveMemoryWarning
+二、 UIScrollView、UITableView、UICollectionView、UIWebView、WKWebView
+三、 选中某行cell：
+-(void)tableView:(UITableView*)tableView didSelectRowAtIndexPath:(NSIndexPath*)indexPath;
+自定义每组头部的view需要用到UITableViewHeadeerFooterView
+-(UIView*)tableView:(UITableView*)tableView viewForHeaderInSection::(NSInteger)section;
+自定义每组尾部的view需要用到UITableViewHeadeerFooterView
+-(UIView*)tableView:(UITableView*)tableView viewForFooterInSection::(NSInteger)section;
+
